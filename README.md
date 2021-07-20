@@ -1,70 +1,228 @@
-# Getting Started with Create React App
+# 利用react+material-ui做一个小练习
+***
+_语言：JavaScript，TypeScript，React，SPA，Material-UI_
+## 1.React APP作成
+在要创建工程的目录下运行以下命令：
+```
+npx create-react-app react-material-ui-sample --typescript
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 2.然后打开VScode，打开刚创建的工程react-material-ui-sample，在该工程路径下执行：```npm start```
+## 然后浏览器自动打开http://localhost:3000，画面出现一朵蓝色的六瓣花。
 
-## Available Scripts
+## 3.按照以下结构构造目录：
+src/
+├ components/
+│　└ atoms/ # 原子（個々のパーツ）
+│　└ molecules/ # 分子（原子の集合体）
+│　└ organisms/ # 生体（分子の集合体）
+│　└ templates/ # テンプレート（ページの雛形）
+│　└ pages/ # ページ
+├ App.tsx
+├ index.css
+├ index.tsx〜〜〜〜〜〜〜〜〜〜〜〜〜
 
-In the project directory, you can run:
+## 4.创建一个例子。在src/components/pages/目录下创建一个HomePage.tsx  和ProductPage.tsx
+HomePage.tsx：
+```
+import React from "react";
+const HomePage: React.FC = () => {
+  return <>トップページ</>;
+};
+export default HomePage;
+ProductPage.tsx：
+import React from "react";
 
-### `yarn start`
+const ProductPage: React.FC = () => {
+  return <>商品ページ</>;
+};
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+export default ProductPage;
+## 5.在访问指定路径时，尝试实现路由，以描绘刚才创建的两个页面。首先安装实现路由的程序库。
+```
+npm install --save react-router-domnpm
+install --save-dev @types/react-router-dom
+```
+## 6.编辑APP.js
+App.js：
+```
+import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ProductPage from "./components/pages/ProductPage";
+import HomePage from "./components/pages/HomePage";
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+function App() {
+  return (
+      <Router>
+        <Switch>
+          <Route path="/products" component={ProductPage} exact />
+          <Route path="/" component={HomePage} exact />
+        </Switch>
+      </Router>
+  );
+}
+export default App;
+```
 
-### `yarn test`
+## 7.然后程序出现红线了，提醒我可能没有安装TypeScript
+```
+It looks like you're trying to use TypeScript but do not have typescript installed.Please install typescript by running yarn add typescript.
+```
+然后运行```yarn add typescript```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 8.安装了typeScript后仍然有问题，找到编辑tsconfig。
+```
+{
+"compilerOptions": {
+"target": "esnext",
+"moduleResolution": "node",
+"allowJs": true,
+"noEmit": true,
+"strict": true,
+"isolatedModules": true,
+"esModuleInterop": true,
+"lib": [
+"esnext",
+"dom",
+],
+"allowSyntheticDefaultImports": true,
+"jsx": "react-jsx",
+"skipLibCheck": true,
+"forceConsistentCasingInFileNames": true,
+"noFallthroughCasesInSwitch": true,
+"module": "esnext",
+"resolveJsonModule": true
+},
+"include": [
+// "src",
+"**/*.tsx",
+]
+}
+```
 
-### `yarn build`
+## 9.导入materialUI
+执行以下命令安装
+```
+npm install --save @material-ui/core @material-ui/icons
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 10.导入与Material-II投缘的Google日语字体和字体图标。在public/index.>的页眉中添加CDN的URL
+index.html
+```
+<head>
+〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&subset=japanese" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+</head>
+```
+## 11.做成一个模版
+GenericTemplate.tsx
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 12.页面适用
+*HomePage.tsx
+```
+import React from "react";
+import GenericTemplate from "../templates/GenericTemplate";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const HomePage: React.FC = () => {
+  return (
+    <GenericTemplate title="トップページ">
+      <>トップページ内容</>
+    </GenericTemplate>
+  );
+};
 
-### `yarn eject`
+export default HomePage;
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+*ProductPage.tsx
+```
+import React from "react";
+import GenericTemplate from "../templates/GenericTemplate";
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const ProductPage: React.FC = () => {
+  return (
+    <GenericTemplate title="商品ページ">
+      <>商品ページ内容</>
+    </GenericTemplate>
+  );
+};
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+export default ProductPage;
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 13.根据需要就可以编辑页面了
+比如ProductPage.tsx：
+```
+import React from "react";
+import GenericTemplate from "../templates/GenericTemplate";
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
-## Learn More
+const createData = (
+  name: string,
+  category: string,
+  weight: number,
+  price: number
+) => {
+  return { name, category, weight, price };
+};
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const rows = [
+  createData("チョコレート", "お菓子", 100, 120),
+  createData("ケーキ", "お菓子", 400, 480),
+  createData("りんご", "フルーツ", 500, 360),
+  createData("バナナ", "フルーツ", 200, 300),
+  createData("みかん", "フルーツ", 250, 180),
+];
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
 
-### Code Splitting
+const ProductPage: React.FC = () => {
+  const classes = useStyles();
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  return (
+    <GenericTemplate title="商品ページ">
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>商品名</TableCell>
+              <TableCell align="right">カテゴリー</TableCell>
+              <TableCell align="right">重量(g)</TableCell>
+              <TableCell align="right">価格(円)</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell component="th" scope="row">
+                  {row.name}
+                </TableCell>
+                <TableCell align="right">{row.category}</TableCell>
+                <TableCell align="right">{row.weight}</TableCell>
+                <TableCell align="right">{row.price}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </GenericTemplate>
+  );
+};
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default ProductPage;
+```
