@@ -2,11 +2,11 @@
 ***
 _语言：JavaScript，TypeScript，React，SPA，Material-UI_
 ## 1.React APP作成
-在要创建工程的目录下运行以下命令：
+在要创建工程的目录下运行以下命令：  
 `npx create-react-app react-material-ui-sample --typescript`
 
 ## 2.然后打开VScode，打开刚创建的工程react-material-ui-sample，在该工程路径下执行：
-`npm start`
+`npm start`   
 然后浏览器自动打开[本地服务器](http://localhost:3000)，画面出现一朵蓝色的六瓣花。
 
 ## 3.按照以下结构构造目录：
@@ -42,7 +42,7 @@ const ProductPage: React.FC = () => {
 export default ProductPage;
 ```
 ## 5.在访问指定路径时，尝试实现路由，以描绘刚才创建的两个页面。首先安装实现路由的程序库。
-`npm install --save react-router-domnpm`
+`npm install --save react-router-domnpm`   
 `install --save-dev @types/react-router-dom`
 
 ## 6.编辑APP.js
@@ -482,15 +482,16 @@ export default ProductPage;
 ```
 
 ********************************
-参考资料：
-[https://dev.classmethod.jp/articles/react-material-ui/](https://dev.classmethod.jp/articles/react-material-ui/)
-[React](https://ja.reactjs.org/)
-[Material-Ui](https://material-ui.com/)
+参考资料：   
+* [React + Material-UIで管理画面を作成してみた](https://dev.classmethod.jp/articles/react-material-ui/)   
+* [React教程](https://ja.reactjs.org/)   
+* [Material-Ui教程](https://material-ui.com/)   
 ********************************
 
-我生成的githubToken：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
-根据[教程](https://www.cnblogs.com/sxdcgaq8080/p/10530176.html)操作生成
+我生成的githubToken：`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`   
+根据[github和gitlab同步教程](https://www.cnblogs.com/sxdcgaq8080/p/10530176.html)操作生成
 
-https://github.com/Gretel-yuyu/-myReactPractice.git
-https://github.com/Gretel-yuyu/react-material-ui-sample.git
+在github生成的代码git   
+* `https://github.com/Gretel-yuyu/-myReactPractice.git`   
+* `https://github.com/Gretel-yuyu/react-material-ui-sample.git`   
 ********************************
