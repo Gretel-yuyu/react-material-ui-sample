@@ -10,6 +10,8 @@ _语言：JavaScript，TypeScript，React，SPA，Material-UI_
 然后浏览器自动打开[本地服务器](http://localhost:3000)，画面出现一朵蓝色的六瓣花。
 
 ## 3.按照以下结构构造目录：
+
+```
 src/
 ├ components/
 │　└ atoms/ # 原子（個々のパーツ）
@@ -20,6 +22,7 @@ src/
 ├ App.tsx
 ├ index.css
 ├ index.tsx〜〜〜〜〜〜〜〜〜〜〜〜〜
+```
 
 ## 4.创建一个例子。在src/components/pages/目录下创建一个HomePage.tsx  和ProductPage.tsx
 *HomePage.tsx：*
@@ -483,3 +486,11 @@ export default ProductPage;
 [https://dev.classmethod.jp/articles/react-material-ui/](https://dev.classmethod.jp/articles/react-material-ui/)
 [React](https://ja.reactjs.org/)
 [Material-Ui](https://material-ui.com/)
+********************************
+
+我生成的githubToken：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
+根据[教程](https://www.cnblogs.com/sxdcgaq8080/p/10530176.html)操作生成
+
+https://github.com/Gretel-yuyu/-myReactPractice.git
+https://github.com/Gretel-yuyu/react-material-ui-sample.git
+********************************
