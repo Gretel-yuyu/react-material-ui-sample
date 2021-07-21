@@ -482,6 +482,14 @@ export default ProductPage;
 ```
 
 ********************************
+##最后成果物的图
+* HomePage   
+![HomePage 图标](https://github.com/Gretel-yuyu/markdownImage/blob/master/react-material-ui-sample/homePage.png)
+
+* ProductPage   
+![ProductPage 图标](https://github.com/Gretel-yuyu/markdownImage/blob/master/react-material-ui-sample/productPage.png)
+
+********************************
 参考资料：   
 * [React + Material-UIで管理画面を作成してみた](https://dev.classmethod.jp/articles/react-material-ui/)   
 * [React教程](https://ja.reactjs.org/)   
