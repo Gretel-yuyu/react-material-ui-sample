@@ -492,6 +492,6 @@ export default ProductPage;
 根据[github和gitlab同步教程](https://www.cnblogs.com/sxdcgaq8080/p/10530176.html)操作生成
 
 在github生成的代码git   
-* <https://github.com/Gretel-yuyu/-myReactPractice.git>   
-* <https://github.com/Gretel-yuyu/react-material-ui-sample.git>   
+* `https://github.com/Gretel-yuyu/-myReactPractice.git`   
+* `https://github.com/Gretel-yuyu/react-material-ui-sample.git`   
 ********************************
