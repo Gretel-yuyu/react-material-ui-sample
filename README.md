@@ -482,16 +482,16 @@ export default ProductPage;
 ```
 
 ********************************
-参考资料：
-*[https://dev.classmethod.jp/articles/react-material-ui/](https://dev.classmethod.jp/articles/react-material-ui/)   
-*[React](https://ja.reactjs.org/)   
-*[Material-Ui](https://material-ui.com/)   
+参考资料：   
+* [React + Material-UIで管理画面を作成してみた](https://dev.classmethod.jp/articles/react-material-ui/)   
+* [React教程](https://ja.reactjs.org/)   
+* [Material-Ui教程](https://material-ui.com/)   
 ********************************
 
-我生成的githubToken：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   
+我生成的githubToken：`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`   
 根据[github和gitlab同步教程](https://www.cnblogs.com/sxdcgaq8080/p/10530176.html)操作生成
 
-在github生成的代码git
-*<https://github.com/Gretel-yuyu/-myReactPractice.git>   
-*<https://github.com/Gretel-yuyu/react-material-ui-sample.git>   
+在github生成的代码git   
+* <https://github.com/Gretel-yuyu/-myReactPractice.git>   
+* <https://github.com/Gretel-yuyu/react-material-ui-sample.git>   
 ********************************
