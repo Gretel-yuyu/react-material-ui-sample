@@ -6,7 +6,7 @@ _语言：JavaScript，TypeScript，React，SPA，Material-UI_
 `npx create-react-app react-material-ui-sample --typescript`
 
 ## 2.然后打开VScode，打开刚创建的工程react-material-ui-sample，在该工程路径下执行：
-`npm start`
+`npm start`   
 然后浏览器自动打开[本地服务器](http://localhost:3000)，画面出现一朵蓝色的六瓣花。
 
 ## 3.按照以下结构构造目录：
@@ -483,14 +483,15 @@ export default ProductPage;
 
 ********************************
 参考资料：
-[https://dev.classmethod.jp/articles/react-material-ui/](https://dev.classmethod.jp/articles/react-material-ui/)
-[React](https://ja.reactjs.org/)
-[Material-Ui](https://material-ui.com/)
+*[https://dev.classmethod.jp/articles/react-material-ui/](https://dev.classmethod.jp/articles/react-material-ui/)   
+*[React](https://ja.reactjs.org/)   
+*[Material-Ui](https://material-ui.com/)   
 ********************************
 
-我生成的githubToken：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
-根据[教程](https://www.cnblogs.com/sxdcgaq8080/p/10530176.html)操作生成
+我生成的githubToken：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   
+根据[github和gitlab同步教程](https://www.cnblogs.com/sxdcgaq8080/p/10530176.html)操作生成
 
-https://github.com/Gretel-yuyu/-myReactPractice.git
-https://github.com/Gretel-yuyu/react-material-ui-sample.git
+在github生成的代码git
+*<https://github.com/Gretel-yuyu/-myReactPractice.git>   
+*<https://github.com/Gretel-yuyu/react-material-ui-sample.git>   
 ********************************
