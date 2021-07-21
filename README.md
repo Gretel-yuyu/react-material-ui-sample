@@ -11,16 +11,18 @@ _语言：JavaScript，TypeScript，React，SPA，Material-UI_
 
 ## 3.按照以下结构构造目录：
 
-src/   
-├ components/   
-│　└ atoms/ # 原子（個々のパーツ）   
-│　└ molecules/ # 分子（原子の集合体）   
-│　└ organisms/ # 生体（分子の集合体）   
-│　└ templates/ # テンプレート（ページの雛形）   
-│　└ pages/ # ページ   
-├ App.tsx   
-├ index.css   
-├ index.tsx〜〜〜〜〜〜〜〜〜〜〜〜〜   
+`
+src/
+├ components/
+│　└ atoms/ # 原子（個々のパーツ）
+│　└ molecules/ # 分子（原子の集合体）
+│　└ organisms/ # 生体（分子の集合体）
+│　└ templates/ # テンプレート（ページの雛形）
+│　└ pages/ # ページ
+├ App.tsx
+├ index.css
+├ index.tsx〜〜〜〜〜〜〜〜〜〜〜〜〜
+`
 
 ## 4.创建一个例子。在src/components/pages/目录下创建一个HomePage.tsx  和ProductPage.tsx
 *HomePage.tsx：*
