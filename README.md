@@ -2,7 +2,7 @@
 ***
 _语言：JavaScript，TypeScript，React，SPA，Material-UI_
 ## 1.React APP作成
-在要创建工程的目录下运行以下命令：
+在要创建工程的目录下运行以下命令：  
 `npx create-react-app react-material-ui-sample --typescript`
 
 ## 2.然后打开VScode，打开刚创建的工程react-material-ui-sample，在该工程路径下执行：
@@ -11,18 +11,16 @@ _语言：JavaScript，TypeScript，React，SPA，Material-UI_
 
 ## 3.按照以下结构构造目录：
 
-```
-src/
-├ components/
-│　└ atoms/ # 原子（個々のパーツ）
-│　└ molecules/ # 分子（原子の集合体）
-│　└ organisms/ # 生体（分子の集合体）
-│　└ templates/ # テンプレート（ページの雛形）
-│　└ pages/ # ページ
-├ App.tsx
-├ index.css
-├ index.tsx〜〜〜〜〜〜〜〜〜〜〜〜〜
-```
+src/   
+├ components/   
+│　└ atoms/ # 原子（個々のパーツ）   
+│　└ molecules/ # 分子（原子の集合体）   
+│　└ organisms/ # 生体（分子の集合体）   
+│　└ templates/ # テンプレート（ページの雛形）   
+│　└ pages/ # ページ   
+├ App.tsx   
+├ index.css   
+├ index.tsx〜〜〜〜〜〜〜〜〜〜〜〜〜   
 
 ## 4.创建一个例子。在src/components/pages/目录下创建一个HomePage.tsx  和ProductPage.tsx
 *HomePage.tsx：*
@@ -42,7 +40,7 @@ const ProductPage: React.FC = () => {
 export default ProductPage;
 ```
 ## 5.在访问指定路径时，尝试实现路由，以描绘刚才创建的两个页面。首先安装实现路由的程序库。
-`npm install --save react-router-domnpm`
+`npm install --save react-router-domnpm`   
 `install --save-dev @types/react-router-dom`
 
 ## 6.编辑APP.js
