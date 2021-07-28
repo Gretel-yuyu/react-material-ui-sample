@@ -503,3 +503,140 @@ export default ProductPage;
 * `https://github.com/Gretel-yuyu/-myReactPractice.git`   
 * `https://github.com/Gretel-yuyu/react-material-ui-sample.git`   
 ********************************
+
+##实现网络连接
+##How to integrate FaunaDB in React apps with Material UI
+首先我找到了一个免费的云数据库，叫Fauna，用github就可以注册登录。  
+接下来讲一下怎么创建数据库。
+###创建一个新的 FaunaDB 实例
+* 创建新帐户或登录后，仪表板屏幕将欢迎您。按下按钮：`New Database`  
+* 然后，输入数据库的名称并按下按钮`Save`,比如数据库起名字叫`MyFirstDatabase`.
+* 设置数据库实例后，您就可以创建访问`密钥`了。访问`密钥`是连接授权和从 React 应用程序到数据库的连接。**此键允许您控制谁对数据库进行读写操作。**  
+* 要创建第一个访问`密钥`，请从侧面菜单转到`Security`选项卡并单击按钮：`New Key`,按`Save`以后，将生成一个`新密钥`.
+```
+`YOUR KEY'S SECRET IS`:
+`新密钥`（比如abcdefg）
+```
+* 记住这个`新密钥`。
+* 为了避免在通过 GitHub 存储项目时从 React 应用程序泄露令牌，在 React 项目的根目录中创建一个文件，`.env`文件。
+    - react--添加环境变量
+        - 添加环境变量
+        `create-react-app`创建的项目，不想要直接修改node包里的webpack，所以需要扩展webpack配置，在根目录中做修改。
+        这里使用`react-app-rewired`.
+            - 安装依赖
+            ```
+            $ npm install react-app-rewired customize-cra --save-dev
+            ```
+            - 修改 package.json 的 scripts 配置
+            ```
+            /* package.json */
+            
+              "scripts": {
+            -   "start": "react-scripts start",
+            +   "start": "react-app-rewired start",
+            -   "build": "react-scripts build",
+            +   "build": "react-app-rewired build",
+            -   "test": "react-scripts test",
+            +   "test": "react-app-rewired test",
+                "eject": "react-scripts eject"
+            }
+            ```
+            - 在项目的根目录下创建`config-overrides.js`文件
+            ```
+            +-- your-project
+            |   +-- config-overrides.js
+            |   +-- node_modules
+            |   +-- package.json
+            |   +-- public
+            |   +-- README.md
+            |   +-- src
+            ```
+            - 在`config-overrides.js`文件中添加配置项
+            ```
+            /* config-overrides.js */
+            const { override,disableEsLint} = require('customize-cra')
+
+
+            //关闭mapSource bug 打包的css有map文件
+            //const rewiredMap = () => config => {
+               //config.devtool = config.mode === 'development' ? 'cheap-module-source-map' : false;
+               //return config;
+            //};
+
+            //关闭mapSource css和js都去掉了map文件
+            process.env.GENERATE_SOURCEMAP = false
+
+            module.exports = {
+               webpack: override(
+                  // 关闭mapSource
+                  //rewiredMap(),
+                  disableEsLint()
+               ),
+            } 
+            ```
+            - 关闭mapSource
+            ```
+            /* config-overrides.js */
+            
+            module.exports = function override(config, env) {
+              //do stuff with the webpack config...
+              return config;
+            }
+            ```
+            - package.json
+            ```
+            "scripts": {
+              "start": "REACT_APP_ENV=test react-app-rewired start",
+              "build": "REACT_APP_ENV=production react-app-rewired build",
+              "build:test": "REACT_APP_ENV=test react-app-rewired --max_old_space_size=4096 build",
+              "test": "react-scripts test",
+              "eject": "react-scripts eject"
+            },
+            "devDependencies": {
+              "customize-cra": "^1.0.0",
+              "react-app-rewired": "^2.1.6",
+            }
+            ```
+            - 以上webpack配置参照一下链接
+            [扩展webpack配置:react-app-rewired](https://juejin.cn/post/6860359773313826823/)
+        - cross-env+react-app-rewired
+           - 安装cross-env
+           ```
+           npm i cross-env --save-dev
+           ```
+           - 安装 dotenv-cli 包
+           ```
+           npm i  dotenv-cli --save-dev
+           ```
+           - 根据需求在根目录创建 .env 文件（注意：只能以 REACT_APP_ 开头）
+           - 运行`npm run build:dev`
+    - 在`.env`文件创建一个变量
+    `REACT_APP_DB_KEY = YOUR_KEY_HERE`
+    - 确保将`.env`文件添加到.gitignore,以免上传后泄漏密码
+    - 创建Collections
+    这里的Collections相当于表的映射，点击`New Collection`,Collection Name:`MyFirstTable`.
+    - 创建Indexes
+    在 FaunaDB 中搜索文档可以通过使用来完成indexes，特别是通过将输入与索引的terms字段进行匹配。如果您期待在特定屏幕上搜索等功能，这将很有帮助   
+    ```
+    Source Collection：`MyFirstTable`
+    Index Name:`all_fields`
+    ```
+    - 安装依赖
+    ```
+    yarn add faunadb @material-ui/core
+    ```
+    - 在src/config/下创建db.js文件
+    ```
+    import faunaDb from 'faunadb';
+    const client = new faunaDb.Client({
+      secret: process.env.REACT_APP_DB_KEY,
+    });
+    const faunaQuery = faunaDb.query;
+    export { client, faunaQuery };
+    ```
+    - 确认能够读取.env文件后，就可以在src/api目录下创建对数据库的增删改查方法。
+    - 以上内容参照以下链接
+    [How to integrate FaunaDB in React apps with Material UI](https://blog.logrocket.com/how-to-integrate-faunadb-in-react-apps-with-material-ui/)
+
+******************************************************************
+
