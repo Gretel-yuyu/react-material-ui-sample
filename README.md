@@ -504,10 +504,11 @@ export default ProductPage;
 * `https://github.com/Gretel-yuyu/react-material-ui-sample.git`   
 ********************************
 
-##实现网络连接
-##How to integrate FaunaDB in React apps with Material UI
+##实现网络连接  
+##How to integrate FaunaDB in React apps with Material UI  
 首先我找到了一个免费的云数据库，叫Fauna，用github就可以注册登录。  
 接下来讲一下怎么创建数据库。
+
 ###创建一个新的 FaunaDB 实例
 * 创建新帐户或登录后，仪表板屏幕将欢迎您。按下按钮：`New Database`  
 * 然后，输入数据库的名称并按下按钮`Save`,比如数据库起名字叫`MyFirstDatabase`.
@@ -523,7 +524,7 @@ export default ProductPage;
         - 添加环境变量
         `create-react-app`创建的项目，不想要直接修改node包里的webpack，所以需要扩展webpack配置，在根目录中做修改。
         这里使用`react-app-rewired`.
-            - 安装依赖
+            - 安装react-app-rewired依赖
             ```
             $ npm install react-app-rewired customize-cra --save-dev
             ```
@@ -597,7 +598,7 @@ export default ProductPage;
               "react-app-rewired": "^2.1.6",
             }
             ```
-            - 以上webpack配置参照一下链接
+            - 以上webpack配置参照以下链接  
             [扩展webpack配置:react-app-rewired](https://juejin.cn/post/6860359773313826823/)
         - cross-env+react-app-rewired
            - 安装cross-env
@@ -635,7 +636,7 @@ export default ProductPage;
     export { client, faunaQuery };
     ```
     - 确认能够读取.env文件后，就可以在src/api目录下创建对数据库的增删改查方法。
-    - 以上内容参照以下链接
+    - 以上内容参照以下链接  
     [How to integrate FaunaDB in React apps with Material UI](https://blog.logrocket.com/how-to-integrate-faunadb-in-react-apps-with-material-ui/)
 
 ******************************************************************

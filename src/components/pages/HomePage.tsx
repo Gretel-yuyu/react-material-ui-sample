@@ -21,7 +21,13 @@ const HomePage: React.FC = () => {
 
   function handleSubmit(event: { preventDefault: () => void; }) {
     event.preventDefault();
-    createExpenseItem(expenseDetail);
+    let details = new Map<string, any>();
+    details.set('id', 111);
+    details.set('name', expenseDetail);
+    details.forEach(detail => {
+
+    })
+    createExpenseItem(details);
     resetInputField();
   }
 

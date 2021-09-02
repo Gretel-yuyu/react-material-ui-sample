@@ -1,4 +1,5 @@
 import faunaDb from 'faunadb';
+
 const client = new faunaDb.Client({
   queryTimeout: 2000,
   secret: process.env.REACT_APP_DB_KEY,
